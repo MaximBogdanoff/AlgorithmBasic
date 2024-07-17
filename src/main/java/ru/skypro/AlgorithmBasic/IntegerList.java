@@ -73,9 +73,7 @@ public interface IntegerList {
     // Удалить все элементы из списка.
     void clear();
 
-    // Создать новый массив
-    // из строк в списке
-    // и вернуть его.
+
     Integer[] toArray();
 
 }

@@ -2,8 +2,6 @@ package ru.skypro.AlgorithmBasic;
 
 import java.util.Arrays;
 
-import static java.util.Arrays.sort;
-
 public class IntegerListImpl implements IntegerList {
     private Integer[] storage;
     private int size;
@@ -137,28 +135,30 @@ public class IntegerListImpl implements IntegerList {
             throw new InvalidIndexException();
         }
     }
-    private void sort(Integer[] arr){
-        quickSort(arr,0,arr.length-1);
+
+    private void sort(Integer[] arr) {
+        quickSort(arr, 0, arr.length - 1);
     }
 
-    private void quickSort(Integer[] arr, int begin, int end){
-        if (begin<end) {
-            int partitionIndex=partition(arr,begin,end);
-            quickSort(arr,begin,partitionIndex-1);
-            quickSort(arr, partitionIndex+1,end);
+    private void quickSort(Integer[] arr, int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(arr, begin, end);
+            quickSort(arr, begin, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, end);
         }
     }
-    private int partition(Integer[] arr, int begin, int end){
-        int pivot=arr[end];
-        int i=(begin-1);
-        for (int j=begin; j<end;j++){
-            if (arr[j]<=pivot){
+
+    private int partition(Integer[] arr, int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin - 1);
+        for (int d = begin; d < end; d++) {
+            if (arr[d] <= pivot) {
                 i++;
-                swapElements(arr,i,j);
+                swapElements(arr, i, d);
             }
         }
-        swapElements(arr,i+1,end);
-        return i+1;
+        swapElements(arr, i + 1, end);
+        return i + 1;
     }
 
     private void swapElements(Integer[] arr, int i1, int i2) {
@@ -166,9 +166,6 @@ public class IntegerListImpl implements IntegerList {
         arr[i1] = arr[i2];
         arr[i2] = temp;
     }
-
-
-
 
 
     private boolean binarySearch(Integer[] arr, Integer item) {
@@ -190,8 +187,9 @@ public class IntegerListImpl implements IntegerList {
         }
         return false;
     }
-    private void grow(){
-        storage=Arrays.copyOf(storage,size+size/2);
+
+    private void grow() {
+        storage = Arrays.copyOf(storage, size + size / 2);
     }
 
 
