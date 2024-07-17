@@ -78,7 +78,4 @@ public interface IntegerList {
     // и вернуть его.
     Integer[] toArray();
 
-    void sortBubble(int[] arr);
-    void sortSelection(int[] arr);
-    void sortInsertion(int[] arr);
 }
